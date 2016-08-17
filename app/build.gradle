@@ -1,0 +1,92 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.0"
+    useLibrary 'org.apache.http.legacy'
+    defaultConfig {
+        applicationId "com.lxs.bilibili_android_copy"
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField "String", "BASE_URL", project.BASE_URL
+        buildConfigField "String", "BMOBAPPLICATIONID", project.BMOBAPPLICATIONID
+        buildConfigField "String", "BMOBRESTAPIKEY", project.BMOBRESTAPIKEY
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // 移除lint检查的error
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.1.1'
+    compile 'com.android.support:design:24.1.1'
+    compile 'com.android.support:recyclerview-v7:24.1.1'
+    compile 'com.android.support:cardview-v7:24.1.1'
+
+    compile 'com.jakewharton:butterknife:8.2.1'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
+
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'io.reactivex:rxjava:1.1.0'
+
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
+//    compile 'com.trello:rxlifecycle:0.6.1'
+//    compile 'com.trello:rxlifecycle-components:0.6.1'
+
+    //Bmob中包含
+//    compile 'com.google.code.gson:gson:2.4'
+
+    compile 'org.greenrobot:eventbus:3.0.0'
+
+    /**
+     * Bmob
+     */
+//    compile 'cn.bmob.android:bmob-sdk:3.5.0'
+//    //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
+//    compile 'cn.bmob.android:http-legacy:1.0'
+
+    /**
+     * 视频 IjkPlayer
+     */
+//    # required, enough for most devices.
+    compile 'tv.danmaku.ijk.media:ijkplayer-java:0.6.0'
+    compile 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.6.0'
+//    # Other ABIs: optional
+    compile 'tv.danmaku.ijk.media:ijkplayer-armv5:0.6.0'
+//    compile 'tv.danmaku.ijk.media:ijkplayer-arm64:0.6.0'
+//    compile 'tv.danmaku.ijk.media:ijkplayer-x86:0.6.0'
+//    compile 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.6.0'
+//    # ExoPlayer as IMediaPlayer: optional, experimental
+    compile 'tv.danmaku.ijk.media:ijkplayer-exo:0.6.0'
+
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+}

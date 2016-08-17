@@ -1,0 +1,44 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:clipToPadding">false</item>
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="day" parent="AppTheme.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="main_bg">@color/colorPrimaryDarkTranslate</item>
+        <item name="main_textcolor">@color/textMidLight</item>
+        <item name="second_bg">@color/white</item>
+        <item name="back_image_switch">@mipmap/ic_switch_night</item>
+    </style>
+
+    <style name="night" parent="AppTheme.NoActionBar">
+        <item name="colorPrimary">@color/background_night_two</item>
+        <item name="main_bg">@color/background_night</item>
+        <item name="main_textcolor">@color/textLight</item>
+        <item name="second_bg">@color/background_night_two</item>
+        <item name="back_image_switch">@mipmap/ic_switch_daily</item>
+    </style>
+
+    <style name="SizeSpecificCollapsingToolbarLayout">
+        <item name="layout_scrollFlags">scroll|exitUntilCollapsed</item>
+        <item name="contentScrim">?attr/colorPrimary</item>
+    </style>
+
+</resources>
